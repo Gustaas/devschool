@@ -25,8 +25,10 @@ app.post('/matricula', async(req, resp) => {
             nm_curso: curso,
             nm_turma: turma
         })
+        console.log(r);
 
         resp.send(r);
+        
     } catch (e) {
         resp.send({ erro: e.toString() })
     }    
