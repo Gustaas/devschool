@@ -2,10 +2,27 @@
 import Cabecalho from '../../components/cabecalho'
 import Menu from '../../components/menu'
 
+import { useState, useEffect} from 'react';
 import { Container, Conteudo } from './styled'
 
+import Api from '../../service/api';
+
+
+const api = new Api();
 
 export default function Index() {
+    
+    const [alunos, setAlunos] = useState([]); 
+
+    async function listar() {
+        let r = await api.listar();
+        setAlunos(r);
+    }
+
+    useEffect( () => {
+        listar();
+    }, [] );
+    
     return (
         <Container>
             <Menu />
@@ -74,37 +91,6 @@ export default function Index() {
                                     <td> <button> <img src="/assets/images/edit.svg" alt="" /> </button> </td>
                                     <td> <button> <img src="/assets/images/trash.svg" alt="" /> </button> </td>
                                 </tr>
-                            
-                                <tr class="linha-alternada">
-                                    <td> 1 </td>
-                                    <td> Fulao da Silva Sauro</td>
-                                    <td> 16 </td>
-                                    <td> InfoX </td>
-                                    <td> Informática </td>
-                                    <td> </td>
-                                    <td> </td>
-                                </tr>
-
-                                <tr>
-                                    <td> 1 </td>
-                                    <td> Fulao da Silva Sauro</td>
-                                    <td> 17 </td>
-                                    <td> InfoX </td>
-                                    <td> Informática </td>
-                                    <td> </td>
-                                    <td> </td>
-                                </tr>
-
-                                <tr class="linha-alternada">
-                                    <td> 1 </td>
-                                    <td> Fulao da Silva Sauro</td>
-                                    <td> 18 </td>
-                                    <td> InfoX </td>
-                                    <td> Informática </td>
-                                    <td> </td>
-                                    <td> </td>
-                                </tr>
-                                
                             </tbody> 
                         </table>
                     </div>
