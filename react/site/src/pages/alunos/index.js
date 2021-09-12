@@ -28,7 +28,9 @@ export default function Index() {
         
         if (idAlterando == 0) {
             let r = await api.inserir(nome, chamada, curso, turma);
-            alert('aluno inserido');
+
+            if (r.erro) alert(r.erro)
+            else alert('aluno inserido');
         } else {
             let r = await api.alterar(idAlterando, nome, chamada, curso, turma);
             alert('aluno alterado');
@@ -75,7 +77,7 @@ export default function Index() {
                         
                         <div class="text-new-student">
                             <div class="bar-new-student"></div>
-                            <div class="text-new-student">Novo Aluno</div>
+                            <div class="text-new-student">{ idAlterando == 0 ? "Novo Aluno" : "Alterando Aluno " + idAlterando}</div>
                         </div>
 
                         <div class="input-new-student"> 
@@ -100,7 +102,7 @@ export default function Index() {
                                     <div class="input"> <input type="text" value={turma} onChange={ e => setTurma(e.target.value) } /> </div> 
                                 </div>
                             </div>
-                            <div class="button-create"> <button onClick={inserir}> Cadastrar </button> </div>
+                            <div class="button-create"> <button onClick={inserir}> {idAlterando == 0 ? "Cadastrar" : "alterar" } </button> </div>
                         </div>
                     </div>
 
@@ -125,15 +127,15 @@ export default function Index() {
                             
                             <tbody>
 
-                                {alunos.map(item =>
-                                    <tr>
+                                {alunos.map((item, i) =>
+                                    <tr className={ i % 2 == 0 ? "linha-alternada" : ""}>
                                         <td> {item.id_matricula} </td>
-                                        <td> {item.nm_aluno}</td>
+                                        <td title={item.nm_aluno}> {item.nm_aluno != null && item.nm_aluno.length >= 25 ? item.nm_aluno.substr(0, 25) + "..." : item.nm_aluno}</td>
                                         <td> {item.nr_chamada} </td>
                                         <td> {item.nm_turma} </td>
                                         <td> {item.nm_curso} </td>
-                                        <td> <button onClick={() => editar(item)}> <img src="/assets/images/edit.svg" alt="" /> </button> </td>
-                                        <td> <button onClick={() => remover(item.id_matricula)}> <img src="/assets/images/trash.svg" alt="" /> </button> </td>
+                                        <td className="coluna-acao"> <button onClick={() => editar(item)}> <img src="/assets/images/edit.svg" alt="" /> </button> </td>
+                                        <td className="coluna-acao"> <button onClick={() => remover(item.id_matricula)}> <img src="/assets/images/trash.svg" alt="" /> </button> </td>
                                     </tr>  
 
                                 )}
