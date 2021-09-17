@@ -17,10 +17,10 @@ const Container = styled.div`
     }
 
     .bar-new-student {
-        border: 3px solid #986CDF;
+        border: 3px solid #119FDC;
         border-radius: .5em;
         margin-right: .4em;
-        background-color: #986CDF;
+        background-color: #119FDC;
     }
 
     .text-new-student {
@@ -42,11 +42,38 @@ const Container = styled.div`
     .agp-input {
         display: flex;
         flex-direction: row;
+        justify-content: space-between;
         align-items: center;
     }
+
+    .agp-input-desc {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        flex-grow: 1;
+    }
+
+    .agp-input-img {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1em;
+    }
+
     .input {
         margin-top: .5em;
         margin-bottom: .5em;
+    }
+
+    .input-upper {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .input-down {
+        display: flex;
+        flex-direction: column;
     }
 
     .input-left {
@@ -61,6 +88,21 @@ const Container = styled.div`
         margin-bottom: 1em;
     }
 
+    .input2{
+        
+    }
+
+    .input2 input {
+        width: 42em;
+        height: 36px;
+
+        background: #FFFFFF;
+        border: 1px solid #A8A8A8;
+        box-sizing: border-box;
+        border-radius: 5px;
+        padding-left: .5em;
+    }
+    
     input {
         width: 209px;
         height: 36px;
@@ -71,6 +113,16 @@ const Container = styled.div`
         border-radius: 5px;
         padding-left: .5em;
 
+    }
+
+    textarea {
+        width: 42em;
+        height: 12em;
+
+        border: 1px solid #A8A8A8;
+        border-radius: 5px;
+        padding-left: .5em;
+        resize: none;
     }
 
     .name-student {
@@ -114,7 +166,7 @@ const Container = styled.div`
         width: 106px;
         height: 36px;
 
-        background: #E911C6;
+        background: #119FDC;
         border-radius: 44px;
         border: none;
         color: white;
@@ -221,7 +273,7 @@ const Container = styled.div`
     }
 
     thead {
-        background-color: #986CDF;
+        background-color: #119FDC;
     }
 
     table {
@@ -286,7 +338,7 @@ const Container = styled.div`
 
     .absolute {
         color: white;
-        background-color: #DB21BD;
+        background-color: #119FDC;
         border: 3px solid white;
         border-radius: 50%;
         position: absolute;
