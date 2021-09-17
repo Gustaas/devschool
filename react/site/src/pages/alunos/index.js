@@ -122,56 +122,32 @@ export default function Index() {
                         
                         <div class="text-new-student">
                             <div class="bar-new-student"></div>
-                            <div class="text-new-student"> {idAlterando === 0 ? "Novo Produto" : "Alterando Produto " + idAlterando}</div>
+                            <div class="text-new-student"> {idAlterando === 0 ? "Novo Aluno" : "Alterando aluno " + idAlterando}</div>
                         </div>
 
                         <div class="input-new-student"> 
-                            <div class='inputsman'>
-                                <div class='input-upper'> 
-                                    <div class="input-left">
-                                        <div class="agp-input"> 
-                                            <div class="name-student"> Nome: </div>  
-                                            <div class="input"> <input type="text" value={nome} onChange={e => setNome(e.target.value)}/> </div>  
-                                        </div> 
-                                        <div class="agp-input">
-                                            <div class="number-student"> Categoria: </div>  
-                                            <div class="input"> <input type="text" value={chamada} onChange={e => setChamada(e.target.value)}/> </div> 
-                                        </div>
-                                        <div class="agp-input">
-                                            <div class="number-student"> Avaliação: </div>  
-                                            <div class="input"> <input type="text" value={chamada} onChange={e => setChamada(e.target.value)}/> </div> 
-                                        </div>
-                                    </div>
+                            <div class="input-left">
+                                <div class="agp-input"> 
+                                    <div class="name-student"> Nome: </div>  
+                                    <div class="input"> <input type="text" value={nome} onChange={e => setNome(e.target.value)}/> </div>  
+                                </div> 
+                                <div class="agp-input">
+                                    <div class="number-student"> Chamada: </div>  
+                                    <div class="input"> <input type="text" value={chamada} onChange={e => setChamada(e.target.value)}/> </div> 
+                                </div>
+                            </div>
 
-                                    <div class="input-right">
-                                        <div class="agp-input">
-                                            <div class="corse-student"> Preço de: </div>  
-                                            <div class="input"> <input type="text" value={curso} onChange={e => setCurso(e.target.value)} /> </div>  
-                                        </div>
-                                        <div class="agp-input">
-                                            <div class="class-student"> Preço por: </div>  
-                                            <div class="input"> <input type="text" value={turma} onChange={e => setTurma(e.target.value)}/> </div> 
-                                        </div>
-                                        <div class="agp-input">
-                                            <div class="class-student"> Estoque: </div>  
-                                            <div class="input"> <input type="text" value={turma} onChange={e => setTurma(e.target.value)}/> </div> 
-                                        </div>
-                                    </div>
+                            <div class="input-right">
+                                <div class="agp-input">
+                                    <div class="corse-student"> Curso: </div>  
+                                    <div class="input"> <input type="text" value={curso} onChange={e => setCurso(e.target.value)} /> </div>  
                                 </div>
-                                <div class='input-down'>
-                                    <div class="agp-input-img">
-                                        <div class="corse-student"> Imagem: </div>  
-                                        <div class="input2"> <input type="text" value={curso} onChange={e => setCurso(e.target.value)} /> </div>  
-                                    </div>
-                                    <div class="agp-input-desc">
-                                        <div class="class-student"> Descrição: </div>  
-                                        <div class="input"> <textarea type="text" value={turma} onChange={e => setTurma(e.target.value)}/> </div> 
-                                    </div>
+                                <div class="agp-input">
+                                    <div class="class-student"> Turma: </div>  
+                                    <div class="input"> <input type="text" value={turma} onChange={e => setTurma(e.target.value)}/> </div> 
                                 </div>
                             </div>
-                            <div>
-                                <div class="button-create"> <button onClick={inserir}> {idAlterando === 0 ? "Cadastrar": "Alterar"} </button> </div>
-                            </div>
+                            <div class="button-create"> <button onClick={inserir}> {idAlterando === 0 ? "Cadastrar": "Alterar"} </button> </div>
                         </div>
                     </div>
 
@@ -185,12 +161,11 @@ export default function Index() {
                 
                             <thead>
                                 <tr>
-                                    <th></th>
                                     <th> ID </th>
-                                    <th> Produto </th>
-                                    <th> Categoria </th>
-                                    <th> Preço </th>
-                                    <th> Estoque </th>
+                                    <th> Nome </th>
+                                    <th> Chamada </th>
+                                    <th> Turma </th>
+                                    <th> Curso </th>
                                     <th class="coluna-acao"> </th>
                                     <th class="coluna-acao"> </th>
                                 </tr>
@@ -200,7 +175,6 @@ export default function Index() {
                             {alunos.map((item, i) =>
                                 
                                 <tr className={i % 2 === 0 ? "linha-alternada": ""}>
-                                    <td></td>
                                     <td> {item.id_matricula} </td>
                                     <td title={item.nm_aluno}> {item.nm_aluno != null && item.nm_aluno.length >= 25 ? item.nm_aluno.substr(0, 25) + '...' : item.nm_aluno}</td>
                                     <td> {item.nr_chamada} </td>
