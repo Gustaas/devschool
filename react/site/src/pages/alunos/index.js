@@ -1,5 +1,4 @@
 import Cabecalho from '../../components/cabecalho'
-
 import Menu from '../../components/menu'
 
 import { Container, Conteudo } from './styled'
